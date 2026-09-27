@@ -190,30 +190,18 @@ These results are from an in-house evaluation run and are **not directly compara
 
 ```text
 .
-├── miniworld_env/          # Custom MiniWorld navigation environment
-├── models/
-│   ├── observation_encoder.py   # CNN visual encoder
-│   ├── transformer_memory.py    # Transformer-based belief state encoder
-│   └── waypoint_predictor.py    # Auxiliary waypoint prediction head
-├── agent/
-│   ├── sac.py               # SAC actor-critic implementation
-│   └── replay_buffer.py
-├── training/
-│   ├── train_sac.py
-│   └── config/
-├── evaluation/
-│   └── evaluate_sac.py
-├── unity_extension/
-│   ├── UnityProject/        # Unity 6.3 LTS scene, agent, camera, obstacles
-│   └── python_bridge/
-│       ├── tcp_server.py    # Unity <-> Python communication
-│       └── observation_parser.py
-├── checkpoints/
-├── results/
+├── agents/              # SAC actor-critic implementation, replay buffer
+├── checkpoints/         # Saved model checkpoints
+├── communication/       # Unity <-> Python TCP bridge (observation/action packets)
+├── envs/                # MiniWorld navigation environment (obstacles, goal, rewards)
+├── models/              # Visual encoder, transformer memory, waypoint predictor
+├── utils/               # Shared helper utilities
+├── train_sac.py         # Training entry point
+├── evaluate_sac.py      # Evaluation entry point (stochastic/deterministic rollout)
 └── README.md
 ```
 
-*(Conceptual structure — reflects the implemented components rather than exact repository filenames.)*
+*(Reflects the current top-level layout of the repository; subfolder contents will expand as the Unity extension is integrated.)*
 
 ---
 
